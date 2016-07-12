@@ -23,16 +23,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 	float BaseLookUpRate;
 
-protected:
-
-	/** Fires a projectile. */
-	void OnFire();
-
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
 	/** Handles stafing movement, left and right */
 	void MoveRight(float Val);
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void CharStartJumping();
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void CharStopJumping();
 
 	/**
 	* Called via input to turn at a given rate.
