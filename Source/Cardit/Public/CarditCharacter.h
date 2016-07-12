@@ -51,5 +51,8 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 	// End of APawn interface
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float Health = 100.f;
 };
 
