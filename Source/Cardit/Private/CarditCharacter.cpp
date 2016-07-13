@@ -78,9 +78,14 @@ void ACarditCharacter::LookUpAtRate(float Rate)
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
-float ACarditCharacter::GetHealth()
+int ACarditCharacter::GetHealth()
 {
 	return Health;
+}
+
+void ACarditCharacter::DealDamage(int Damage)
+{
+	Health -= Damage;
 }
 
 void ACarditCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
@@ -89,3 +94,4 @@ void ACarditCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & 
 
 	DOREPLIFETIME(ACarditCharacter, Health);
 }
+

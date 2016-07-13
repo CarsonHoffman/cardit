@@ -5,8 +5,9 @@
 #include "Components/SceneComponent.h"
 #include "Weapon.generated.h"
 
+class ACarditCharacter;
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( Blueprintable, meta=(BlueprintSpawnableComponent) )
 class CARDIT_API UWeapon : public USceneComponent
 {
 	GENERATED_BODY()
@@ -23,8 +24,13 @@ public:
 
 	void Fire();
 
-private:
+protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float MaxRangeInCm = 5000.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	int DamagePerShot = 20;
+
+
 };

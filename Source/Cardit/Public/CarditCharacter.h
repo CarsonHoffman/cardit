@@ -49,12 +49,14 @@ public:
 	void LookUpAtRate(float Rate);
 
 	UFUNCTION(BlueprintCallable, Category = "Character Variables")
-	float GetHealth();
+	int GetHealth();
 
 	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
 
 	UCameraComponent* GetCamera() { return Camera; }
 	UWeapon* GetCurrentWeapon() { return CurrentWeapon; }
+
+	void DealDamage(int Damage);
 
 protected:
 	// APawn interface
@@ -62,7 +64,7 @@ protected:
 	// End of APawn interface
 
 	UPROPERTY(EditDefaultsOnly, Replicated, Category = "Setup")
-	float Health = 100.f;
+	int Health = 100;
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialize(UCameraComponent* CameraToSet, UWeapon* WeaponToSet);
