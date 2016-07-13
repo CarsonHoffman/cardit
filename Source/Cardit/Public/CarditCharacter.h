@@ -47,6 +47,9 @@ public:
 	*/
 	void LookUpAtRate(float Rate);
 
+	UFUNCTION(BlueprintCallable, Category = "Character Variables")
+	float GetHealth();
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;

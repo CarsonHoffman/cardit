@@ -70,3 +70,8 @@ void ACarditCharacter::LookUpAtRate(float Rate)
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
+
+float ACarditCharacter::GetHealth()
+{
+	return Health;
+}
