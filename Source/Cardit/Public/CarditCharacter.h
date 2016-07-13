@@ -4,6 +4,7 @@
 #include "CarditCharacter.generated.h"
 
 class UInputComponent;
+class UWeapon;
 
 UCLASS(config = Game)
 class ACarditCharacter : public ACharacter
@@ -50,12 +51,23 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Character Variables")
 	float GetHealth();
 
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
+
+	UCameraComponent* GetCamera() { return Camera; }
+	UWeapon* GetCurrentWeapon() { return CurrentWeapon; }
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 	// End of APawn interface
 
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	UPROPERTY(EditDefaultsOnly, Replicated, Category = "Setup")
 	float Health = 100.f;
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void Initialize(UCameraComponent* CameraToSet, UWeapon* WeaponToSet);
+
+	UCameraComponent* Camera = nullptr;
+	UWeapon* CurrentWeapon;
 };
 

@@ -21,6 +21,10 @@ public:
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
-		
-	
+	void Fire();
+
+private:
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float MaxRangeInCm = 5000.f;
 };

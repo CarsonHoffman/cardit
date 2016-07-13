@@ -13,4 +13,8 @@ class CARDIT_API ACarditPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+protected:
+
+	UFUNCTION(BlueprintCallable, Category = "Firing")
+	void FireCurrentWeapon();
 };

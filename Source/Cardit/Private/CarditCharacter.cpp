@@ -4,6 +4,7 @@
 #include "CarditCharacter.h"
 #include "Animation/AnimInstance.h"
 #include "GameFramework/InputSettings.h"
+#include "UnrealNetwork.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -21,6 +22,12 @@ void ACarditCharacter::BeginPlay()
 	// Call the base class  
 	Super::BeginPlay();
 
+}
+
+void ACarditCharacter::Initialize(UCameraComponent* CameraToSet, UWeapon* WeaponToSet)
+{
+	Camera = CameraToSet;
+	CurrentWeapon = WeaponToSet;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -74,4 +81,11 @@ void ACarditCharacter::LookUpAtRate(float Rate)
 float ACarditCharacter::GetHealth()
 {
 	return Health;
+}
+
+void ACarditCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ACarditCharacter, Health);
 }

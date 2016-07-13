@@ -2,7 +2,12 @@
 
 #include "Cardit.h"
 #include "CarditPlayerController.h"
+#include "UnrealNetwork.h"
+#include "CarditCharacter.h"
+#include "Weapon.h"
 
 
-
-
+void ACarditPlayerController::FireCurrentWeapon()
+{
+	Cast<ACarditCharacter>(GetPawn())->GetCurrentWeapon()->Fire();
+}
