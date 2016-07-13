@@ -2,25 +2,26 @@
 
 #pragma once
 
-#include "Components/SceneComponent.h"
-#include "Weapon.generated.h"
+#include "Components/StaticMeshComponent.h"
+#include "CarditWeapon.generated.h"
 
-class ACarditCharacter;
-
-UCLASS( Blueprintable, meta=(BlueprintSpawnableComponent) )
-class CARDIT_API UWeapon : public USceneComponent
+/**
+ * 
+ */
+UCLASS(Blueprintable, meta=(BlueprintSpawnableComponent))
+class CARDIT_API UCarditWeapon : public UStaticMeshComponent
 {
 	GENERATED_BODY()
-
-public:	
+	
+public:
 	// Sets default values for this component's properties
-	UWeapon();
+	UCarditWeapon();
 
 	// Called when the game starts
 	virtual void BeginPlay() override;
-	
+
 	// Called every frame
-	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	void Fire();
 
@@ -31,6 +32,4 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	int DamagePerShot = 20;
-
-
 };

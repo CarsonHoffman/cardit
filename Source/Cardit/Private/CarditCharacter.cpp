@@ -24,7 +24,7 @@ void ACarditCharacter::BeginPlay()
 
 }
 
-void ACarditCharacter::Initialize(UCameraComponent* CameraToSet, UWeapon* WeaponToSet)
+void ACarditCharacter::Initialize(UCameraComponent* CameraToSet, UCarditWeapon* WeaponToSet)
 {
 	Camera = CameraToSet;
 	CurrentWeapon = WeaponToSet;

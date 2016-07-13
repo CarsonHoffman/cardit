@@ -4,8 +4,7 @@
 #include "CarditPlayerController.h"
 #include "UnrealNetwork.h"
 #include "CarditCharacter.h"
-#include "Weapon.h"
-
+#include "CarditWeapon.h"
 
 void ACarditPlayerController::FireCurrentWeapon()
 {

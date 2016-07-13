@@ -4,7 +4,7 @@
 #include "CarditCharacter.generated.h"
 
 class UInputComponent;
-class UWeapon;
+class UCarditWeapon;
 
 UCLASS(config = Game)
 class ACarditCharacter : public ACharacter
@@ -54,7 +54,7 @@ public:
 	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const;
 
 	UCameraComponent* GetCamera() { return Camera; }
-	UWeapon* GetCurrentWeapon() { return CurrentWeapon; }
+	UCarditWeapon* GetCurrentWeapon() { return CurrentWeapon; }
 
 	void DealDamage(int Damage);
 
@@ -67,9 +67,9 @@ protected:
 	int Health = 100;
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
-	void Initialize(UCameraComponent* CameraToSet, UWeapon* WeaponToSet);
+	void Initialize(UCameraComponent* CameraToSet, UCarditWeapon* WeaponToSet);
 
 	UCameraComponent* Camera = nullptr;
-	UWeapon* CurrentWeapon;
+	UCarditWeapon* CurrentWeapon;
 };
 
